@@ -17,4 +17,4 @@ NAIFN is an attempt at an "artificial intelligence" built around assisting users
 
 - Add some basic personal assistant functionality, such as time/weather lookups, reminders/notes.
 
-- Add Speech-to-text for voice interaction.
+- Add speech-to-text for voice interaction.
