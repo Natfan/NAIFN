@@ -1,4 +1,5 @@
 #NAIFN
+#Personal assistant/pseudo AI
 #Takes a text input, outputs text & speech
 #uses regex for language parsing
 import os
