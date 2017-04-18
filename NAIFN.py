@@ -33,19 +33,20 @@ quit = False
 		#speak(parse(input(userInput)))
 
 #Setup
-commandList = ["test1", "test2", "testCommand"]
+commandList = {"test1":"This is test command 1", "test2":"This is test command 2", "test3":"This is test command 3"}
 print("Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
 os.system("say Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
 os.system("say What is your name?")
 name = raw_input("What is your name? ")
 print("Alright " + name + ", lets get started! Ask me anything.")
 os.system("say Alright " + name + ", lets get started! Ask me anything.")
-#Runtime! Command parsing is not working yet, dunno why.
+#Runtime!
 while quit == False:
 	userInput = raw_input(">")
-	for word in userInput:
+
+	for word in userInput.split():
 		if word in commandList:
-			answer = "Command Found."
+			answer = commandList[word]
 		else:
 			answer = "Command Not Found."
 	print(answer)
