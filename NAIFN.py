@@ -33,21 +33,24 @@ quit = False
 		#speak(parse(input(userInput)))
 
 #Setup
-commandList = {"test1":"This is test command 1", "test2":"This is test command 2", "test3":"This is test command 3"}
+commandList = {"Hello":"Hi!", "Goodbye":"Goodbye!", "What's up?":"The sky, a few clouds. The usual."}
 print("Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
 os.system("say Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
+print("What is your name?")
 os.system("say What is your name?")
-name = raw_input("What is your name? ")
+name = raw_input(">")
 print("Alright " + name + ", lets get started! Ask me anything.")
 os.system("say Alright " + name + ", lets get started! Ask me anything.")
 #Runtime!
 while quit == False:
 	userInput = raw_input(">")
-
-	for word in userInput.split():
-		if word in commandList:
-			answer = commandList[word]
-		else:
-			answer = "Command Not Found."
+	if userInput in commandList:
+		answer = commandList[userInput]
+	else:
+		for word in userInput.split():
+			if word in commandList:
+				answer = commandList[word]
+			else:
+				answer = "Sorry! I dont understand that yet."
 	print(answer)
 	os.system("say " + answer)
