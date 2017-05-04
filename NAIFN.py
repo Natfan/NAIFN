@@ -4,43 +4,27 @@
 #uses regex for language parsing??
 import os
 quit = False
-#ALL CODE TEMPORARILY COMMENTED OUT TO AVOID THE HEADACHE THAT IS FUNCTIONS.
-#THANK YOU, AND APOLOGIES FOR THE INCONVENINCE
-#function that cocatonates text output with say command
-#def speak(answer):
-	#spokenAnswer = ("say " + answer)
-	#os.system(spokenAnswer)
-	#print(answer)
+commandList = {"help":"Here's what you can say to me: Hello, Goodbye, What's up? That's it for now.", "Hello":"Hi!", "Goodbye":"Goodbye!", "What's up?":"The sky, a few clouds. The usual."}
+def setup():
+	print("Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
+	print("What is your name?")
+	name = raw_input(">")
+	print("Alright " + name + ", what OS do you use, OS X or Linux?")
+	os.system("say Alright " + name + ", what operating system do you use? O S ten or linux?")
+	OS = raw_input(">")
+	if OS == "Linux":
+		talk = "espeak "
+	elif OS == "OS X":
+		talk = "say "
+	print("Awesome! Now I can talk to you!")
+	os.system(talk + "Awesome! Now I can talk to you.")
 
-#Input parser. Figures out appropiate response to input using regex
-#def parse():
-	#commandList = ["test1", "test2", "testCommand"]
-	#if any(command in userInput for command in commandList):
-    	#answer = "Command Found."
-    #else
-    	#answer = "Command Not Found."
+#if firstTime == true:
+#	setup()
+#else:
+#	continue
 
-#Takes input from user, tidies it up for parsing (fixing typos, etc)
-#def input():
-	#userInput = input("> ")
-	#compare each word of input to a dictionary
-	#auto-correct typos (need auto-correct module)
-	#If question includes 'does/why/where/when/what/how/who' append a question mark
-
-#I think you can guess what this one does
-#def main():
-	#while quit = False:
-		#speak(parse(input(userInput)))
-
-#Setup
-commandList = {"Hello":"Hi!", "Goodbye":"Goodbye!", "What's up?":"The sky, a few clouds. The usual."}
-print("Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
-os.system("say Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
-print("What is your name?")
-os.system("say What is your name?")
-name = raw_input(">")
-print("Alright " + name + ", lets get started! Ask me anything.")
-os.system("say Alright " + name + ", lets get started! Ask me anything.")
+setup()
 #Runtime!
 while quit == False:
 	userInput = raw_input(">")
@@ -53,4 +37,5 @@ while quit == False:
 			else:
 				answer = "Sorry! I dont understand that yet."
 	print(answer)
-	os.system("say " + answer)
+	speech = talk + answer
+	os.system(speech)
