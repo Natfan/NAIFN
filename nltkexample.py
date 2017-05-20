@@ -133,7 +133,7 @@ def getTextFile(filename):
 #TODO:
 #	1. get frank.txt DONE
 #	2. get rndm pos in frank DONE
-#	3. select a sentence that is 140 chars max with  a lower limit of 10
+#	3. select a sentence that is 140 chars max with a lower limit of 10
 
 wordlist = updateWordList();
 
