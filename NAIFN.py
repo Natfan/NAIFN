@@ -3,6 +3,7 @@
 #Takes a text input, outputs text & speech
 #uses regex for language parsing??
 import os
+import nltk
 quit = False
 #ALL CODE TEMPORARILY COMMENTED OUT TO AVOID THE HEADACHE THAT IS FUNCTIONS.
 #THANK YOU, AND APOLOGIES FOR THE INCONVENINCE
@@ -33,24 +34,29 @@ quit = False
 		#speak(parse(input(userInput)))
 
 #Setup
+ops = 'l'
 commandList = {"Hello":"Hi!", "Goodbye":"Goodbye!", "What's up?":"The sky, a few clouds. The usual."}
 print("Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
-os.system("say Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
+if ops == 'm':
+    os.system("say Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
 print("What is your name?")
-os.system("say What is your name?")
+if ops == 'm':
+    os.system("say What is your name?")
 name = input(">")
 print("Alright " + name + ", lets get started! Ask me anything.")
-os.system("say Alright " + name + ", lets get started! Ask me anything.")
+if ops == 'm':
+    os.system("say Alright " + name + ", lets get started! Ask me anything.")
 #Runtime!
 while quit == False:
-	userInput = input(">")
-	if userInput in commandList:
-		answer = commandList[userInput]
-	else:
-		for word in userInput.split():
-			if word in commandList:
-				answer = commandList[word]
-			else:
-				answer = "Sorry! I dont understand that yet."
-	print(answer)
-	os.system("say " + answer)
+    userInput = input(">")
+    if userInput in commandList:
+        answer = commandList[userInput]
+    else:
+        for word in userInput.split():
+            if word in commandList:
+                answer = commandList[word]
+            else:
+                answer = "Sorry! I don't understand that yet."
+        print(answer)
+        if ops == 'm':
+            os.system("say " + answer)
