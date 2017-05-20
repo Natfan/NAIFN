@@ -47,23 +47,23 @@ def getWordTypes(text):
 			gmr.append(item);
 	if verbose == 1:
 		print("");
-		print "Determiner", dt;
+		print("Determiner", dt);
 		print("");
-		print "Verb", vb;
+		print("Verb", vb);
 		print("");
-		print "Noun", nn;
+		print("Noun", nn);
 		print("");
-		print "WH-Determiner", wdt;
+		print("WH-Determiner", wdt);
 		print("");
-		print "Adverb", rb;
+		print("Adverb", rb);
 		print("");
-		print "Adjective", jj;
+		print("Adjective", jj);
 		print("");
-		print "Conjuction", conj;
+		print("Conjuction", conj);
 		print("");
-		print "Grammar", gmr;
+		print("Grammar", gmr);
 		print("");
-		print "Ignore", ignore;
+		print("Ignore", ignore);
 
 def addNewNouns(text, n1, n2, n3):
 	nouns = [];
@@ -86,7 +86,7 @@ def getTypes(text):
 		return False;
 
 	if len(lfb) == 0:
-		print "FAIL, LFB is NOT a NOUN"
+		print("FAIL, LFB is NOT a NOUN");
 		return False;
 
 	return lfb[0:3];
@@ -103,30 +103,30 @@ def file_len(fname):
     return i + 1
 
 def getTextFile(filename):
-	print "start"
+	print("start");
 	randomNo = randint(0, 433403);
-	print randomNo
+	print(randomNo);
 	repeat = True
 	with open(filename, 'r') as frank:
-		print "start openfile"
+		print("start openfile");
 		frank.seek(randomNo);
-		print "seeking"
+		print("seeking");
 		while repeat == True:
-			print "reading line"
+			print("reading line");
 			frank.readline();
-			print "assigning readline to local var"
+			print("assigning readline to local var");
 			textline = frank.readline();
-			print "starting if to check leng"
+			print("starting if to check leng");
 			if (len(textline) <= 10 or len(textline) >= 140):
-				print "setting types to getTypes vals"
+				print("setting types to getTypes vals");
 				types = getTypes(textline)
-				print "if types is false, restart while"
+				print("if types is false, restart while");
 				if (types != False):
-					print "success!"
+					print("success!");
 					outputs = [textline, types];
 					repeat = False;
 			else:
-				print "sentence is too short"
+				print("sentence is too short");
 				repeat = True;
 		return textline;
 
@@ -153,7 +153,7 @@ repl.append('table');
 repl.append('mug');
 repl.append('chair');
 
-print getTypes(outputTextFile);
-print "['" + repl[0] + "', '" + repl[1] + "', '" + repl[2] + "']";
-print addNewNouns(outputTextFile, repl[0], repl[1], repl[2]);
+print(getTypes(outputTextFile));
+print("['" + repl[0] + "', '" + repl[1] + "', '" + repl[2] + "']");
+print(addNewNouns(outputTextFile, repl[0], repl[1], repl[2]));
 #print addNewNouns(outputTextFile, 'table', 'mug', 'chair');
