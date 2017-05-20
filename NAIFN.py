@@ -38,12 +38,12 @@ print("Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
 os.system("say Hello! I am NAIFN, or Natural Artificial Intelligence For Netizens.")
 print("What is your name?")
 os.system("say What is your name?")
-name = raw_input(">")
+name = input(">")
 print("Alright " + name + ", lets get started! Ask me anything.")
 os.system("say Alright " + name + ", lets get started! Ask me anything.")
 #Runtime!
 while quit == False:
-	userInput = raw_input(">")
+	userInput = input(">")
 	if userInput in commandList:
 		answer = commandList[userInput]
 	else:
